@@ -1,6 +1,14 @@
 <html>
 	<head>
 		<title>Node Redirect Page</title>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript">
+            console.log("console is working correctly.");
+            var socket = io.connect("http://pizzawars-roto.dotcloud.com/");
+            socket.on("news", function(data){
+                console.log(data);
+            });
+        </script>
 	</head>
 	<body>
 		<h1>Sweet!</h1>

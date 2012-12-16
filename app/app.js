@@ -20,8 +20,10 @@
 // test
 
 /* Express quick setup */
-var express = require('express');
-var app = express();
+var express = require('express'),
+    app = express(),
+    server = require("http").createServer(app),
+    io = require("socket.io").listen(server);
 
 /* mongodb setup */
 var mongo = require('mongodb');
@@ -43,6 +45,16 @@ var db = new mongo.Db("admin", mongoServer, {auto_reconnect:true});
  *		/people/
  *		/person/{name}/
  **/
+ 
+ io.sockets.on("connection", function(socket){
+     socket.emit("news", { hello: "world" });
+ });
+ 
+ function writeError(response, error)
+ {
+     response.write(JSON.stringify({error: error}));
+     response.end();
+ }
 
 /**
  * API request to get all shops in the database
@@ -59,17 +71,36 @@ app.get("/shops/", function(request, response){
 					response.end();
 				}else
 				{
-					response.write(JSON.stringify({error: err}));
-					response.end();
+					writeError(response, err);
 				}
 			});
 		}else
 		{
-			response.write(JSON.stringify({error: err}));
-			response.end();
+			writeError(response, err);
 		}
 	});
 });
+app.get("/people/", function(request, response){
+    response.contentType = "application/json";
+    db.collection("people", function(err, collection){
+       if (!err)
+       {
+           collection.find().toArray(function(err, results){
+               if (!err)
+               {
+                   response.write(JSON.stringify(results));
+                   response.end();
+               }else
+               {
+                   writeError(response, err);
+               }
+           });
+       }else
+       {
+           writeError(response, err);
+       }
+    });
+})
 /**
  * All page handles will occur here.
  *	Possible Pages:
@@ -78,35 +109,38 @@ app.get("/shops/", function(request, response){
  *		shop.html
  **/
 app.get("/", function(req, res){
+    res.sendfile("home.html");
+    /*
     var fs = require("fs");
     fs.readFile("home.html", function(err,data)
     {
     	if (err)
     	{
-    		res.write(err);
-    		res.end();
+            res.write(err);
+            res.end();
     	}else
     	{
-    		res.write(data);
-    		res.end();
-    	}
+            res.write(data);
+            res.end();
+        }
     });
+    */
 });
 var authError = "NO ERROR";
 db.open(function(err){
     if(err) 
     {
-    	console.log(err);
-    	authError = "1." + err;
+        console.log(err);
+        authError = "1." + err;
     }
 
     if(user && pass) 
     {
         db.authenticate(user, pass, function(err) {
-        	if (err)
-        	{
-        		authError = "2." + err;
-        	}
+            if (err)
+            {
+                authError = "2." + err;
+            }
             app.listen(8080);
         });
     }
