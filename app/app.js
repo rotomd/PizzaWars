@@ -22,8 +22,8 @@
 /* Express quick setup */
 var express = require('express'),
     app = express(),
-    server = require("http").createServer(app),
-    io = require("socket.io").listen(server);
+    server = require("http").createServer(app);
+    //io = require("socket.io").listen(server);
 
 /* mongodb setup */
 var mongo = require('mongodb');
@@ -46,9 +46,11 @@ var db = new mongo.Db("admin", mongoServer, {auto_reconnect:true});
  *		/person/{name}/
  **/
  
+ /*
  io.sockets.on("connection", function(socket){
      socket.emit("news", { hello: "world" });
  });
+ */
  
  function writeError(response, error)
  {
