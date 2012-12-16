@@ -11,7 +11,11 @@
  *			Implement shops page
  *			Implement persons page
  *			Implement persons page editable
+ * 
  */
+ 
+ // test comment to see if I can synch with cloud 9 and git hub and local.
+ //foo bar
 
 /* Express quick setup */
 var express = require('express');
