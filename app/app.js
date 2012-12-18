@@ -23,6 +23,7 @@
 var express = require('express'),
     app = express(),
     server = require("http").createServer(app);
+   //comment
     //io = require("socket.io").listen(server);
 
 /* mongodb setup */
