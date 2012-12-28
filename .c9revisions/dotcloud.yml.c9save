@@ -1,0 +1,1 @@
+{"ts":1356651899216,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"www:\n    type: nodejs\n    approot: app\n    processes:\n        app: node app.js\n    config:\n        node_version: v0.8.x\n    \ndb:\n    type: mongodb\n"]],"start1":0,"start2":0,"length1":0,"length2":147}]],"length":147}

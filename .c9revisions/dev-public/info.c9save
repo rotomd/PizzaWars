@@ -1,0 +1,2 @@
+{"ts":1356655679340,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1356655741082,"patch":[[{"diffs":[[1,"This directory, /dev-public, is for development language versions of public files. \nIf we're using stylus for css, the stylus files go in /dev-public/style/ and compile to \n/public/style."]],"start1":0,"start2":0,"length1":0,"length2":187}]],"length":187,"saved":false}
