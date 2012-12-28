@@ -1,0 +1,8 @@
+{"ts":1356661660281,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1356661721764,"patch":[[{"diffs":[[1,"/*\n    routing for index page,\n    page accessed via /\n*/\n\nexports.renderIndex = function(req, res){\n    res.send('Home Page');\n};"]],"start1":0,"start2":0,"length1":0,"length2":130}]],"length":130,"saved":false}
+{"contributors":[],"silentsave":false,"ts":1356667467045,"patch":[[{"diffs":[[0,"a /\n*/\n\n"],[1,"var render = require('./templates.js').index;\n\n"],[0,"exports."]],"start1":51,"start2":51,"length1":16,"length2":63},{"diffs":[[0,"end("],[-1,"'Home Page'"],[1,"render({})"],[0,");\n}"]],"start1":157,"start2":157,"length1":19,"length2":18}]],"length":176,"saved":false}
+{"ts":1356667925512,"patch":[[{"diffs":[[0,"es.send("],[1," "],[0,"render({"]],"start1":153,"start2":153,"length1":16,"length2":17},{"diffs":[[0,"nder({})"],[1," "],[0,");\n};"]],"start1":164,"start2":164,"length1":13,"length2":14}]],"length":178,"saved":false}
+{"ts":1356668069887,"patch":[[{"diffs":[[0,"quire('."],[1,"./views"],[0,"/templat"]],"start1":74,"start2":74,"length1":16,"length2":23}]],"length":185,"saved":false}
+{"ts":1356668985443,"patch":[[{"diffs":[[0,"q, res){"],[1,"    "],[0,"\n    res"]],"start1":146,"start2":146,"length1":16,"length2":20}]],"length":189,"saved":false}
+{"ts":1356669198495,"patch":[[{"diffs":[[0,").index;"],[1,"\nvar rack = require('asset-rack');"],[0,"\n\nexport"]],"start1":103,"start2":103,"length1":16,"length2":50}]],"length":223,"saved":false}
+{"ts":1356669247082,"patch":[[{"diffs":[[0,".index;\n"],[1,"//"],[0,"var rack"]],"start1":104,"start2":104,"length1":16,"length2":18}]],"length":225,"saved":false}
