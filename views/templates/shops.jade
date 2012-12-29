@@ -1,0 +1,13 @@
+#shops
+    table
+        tr
+            th Rank
+            th Name
+            th Date Ordered
+            th Address
+        each shop in shops
+            tr 
+                td= shop.rank
+                td= shop.name
+                td= shop.dateOrdered
+                td= shop.address

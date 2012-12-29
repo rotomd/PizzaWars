@@ -1,0 +1,2 @@
+jade templates are compiled to javascript functions that end up in this directory.
+this all happens at server init.

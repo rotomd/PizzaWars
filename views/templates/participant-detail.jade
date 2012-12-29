@@ -1,0 +1,11 @@
+#participant-detail
+    h2= name
+    table
+        each shop, i in shops
+            tr
+                td #{i}- 
+                td #{shop}
+            each comment in shop
+                tr 
+                    td
+                    td= comment
