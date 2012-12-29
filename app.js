@@ -21,61 +21,73 @@
 
 */
 
-//wrap everything in a function called when our assets are ready. assets are 
-// compiled jade templates, maybe more things eventually.
-var assets = require('./assets.js').assets;
+var requirejs = require('requirejs');
 
-assets.on('complete', function(){ 
-    var express = require('express'),
-        app = express(),
-        
-        routes = {
-            index: require('./routes/index.js'),
-            people: require('./routes/people.js'),
-            shops: require('./routes/shops.js')
-        };
-      
-      //configuration of express
-    (function (){
-        var port;
-        port = (port = process.env.PORT) != null ? port : 3000;
-        
-        
-        // all environments
-        app.set('port', port);
-        app.set('views', __dirname + '/views');
-        app.set('view engine', 'jade');
-        app.use(express.favicon());
-        
-        app.use(express.bodyParser());
-        app.use(express.methodOverride());
-        
-        
-        app.use(assets); //important: call app.use(assets) before app.use(router)
-        
-        app.use(app.router);
-        
-        // development only
-        if ('development' === app.get('env')) {
-            console.log('Running in development mode');
-            app.use(express.logger('dev'));
-            app.use(express.errorHandler());
-        }
-        
-        // production only
-        if ('production' === app.get('env')) {
-            console.log('Running in production mode');
-        }    
-    })();
-    
-    
-    //routes.
-    app.get('/', routes.index.renderIndex);    
-    
-    
-    //start listening.
-    app.listen(app.get('port'));
-    console.log('Listening on port ' + app.get('port'));
 
+//set up requirejs to run on server side.
+requirejs.config({
+  baseUrl: __dirname,
+  nodeRequire: require
 });
+
+//compile jade templates into javascript for client side usage.
+requirejs(['lib/jade-compile'], function(jadeCompile) {
+  //compile all public templates from 'views/templates' to client-ready javascript functions in 'public/templates'
+  jadeCompile('views/templates', 'public/scripts/templates', {
+    client: true,
+    compileDebug: true
+  });
+});
+
+
+//set up the server.
+var express = require('express'),
+    app = express(),
+    
+    routes = {
+        index: require('./routes/index.js'),
+        people: require('./routes/people.js'),
+        shops: require('./routes/shops.js')
+    };
+  
+  //configuration of express
+(function (){
+    var port;
+    port = (port = process.env.PORT) != null ? port : 3000;
+    
+    
+    // all environments
+    app.set('port', port);
+    app.set('views', __dirname + '/views');
+    app.set('view engine', 'jade');
+    app.use(express.favicon());
+    
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    app.use(express['static'](__dirname + '/public'));
+        
+    
+    app.use(app.router);
+    
+    // development only
+    if ('development' === app.get('env')) {
+        console.log('Running in development mode');
+        app.use(express.logger('dev'));
+        app.use(express.errorHandler());
+    }
+    
+    // production only
+    if ('production' === app.get('env')) {
+        console.log('Running in production mode');
+    }    
+})();
+
+
+//routes.
+app.get('/', routes.index.render);    
+
+
+//start listening.
+app.listen(app.get('port'));
+console.log('Listening on port ' + app.get('port'));
 

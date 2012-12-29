@@ -1,13 +1,15 @@
 doctype 5
 html
-  head
-    title Pizza Wars
-    link(rel='stylesheet', href='/style/style.css')
-    != assets.tag('/templates.js')
-    script(src="/public/js/jade/runtime.js", type="text/javascript")
-  body
-    block header
-      #header
-    block content
-    block footer
-      #footer
+    head
+        title Pizza Wars
+        link(rel='stylesheet', href='/style/style.css')
+        script(src="/scripts/lib/require/require.js", type="text/javascript", data-main="scripts/main")
+    body
+        #wrapper
+            h1.main-title Pizza Wars
+            include side-menu
+            #context
+                include shops
+                include participants
+    
+        

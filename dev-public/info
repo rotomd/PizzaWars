@@ -1,3 +1,0 @@
-This directory, /dev-public, is for development language versions of public files. 
-If we're using stylus for css, the stylus files go in /dev-public/style/ and compile to 
-/public/style.
