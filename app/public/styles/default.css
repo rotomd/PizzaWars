@@ -1,0 +1,7 @@
+body{ font-family: helvetica; }
+.body-container{
+    width: 800px;
+    margin: auto;
+    padding: 0;
+}
+h1{ margin: 0; padding: 0; text-align: center; border: none; width: 800px; font-size: 200%; }
