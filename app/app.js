@@ -34,26 +34,40 @@
  *  > db.people.find()
  *  > db.shops.find()
  */
- 
+
+console.log("first line");
 (function(){
     "use strict";
-
+    console.log("starting app");
     /* Express quick setup */
     var express = require('express'),
         connect = require('connect'),
         path = require('path'),
         app = express(),
-        server = require("http").createServer(app);
+        server = require("http").createServer(app),
+        _config = require("./pizzaWars.config"); // config holds environment variables, when they do not exist.
         //io = require("socket.io").listen(server);
+    
+    var config = _config.pizzaWarsConfig || {
+        mongoHost : "localhost",
+        mongoPort: 27017,
+        mongoUser: undefined,
+        mongoPass: undefined
+    }
     
     /* mongodb setup */
     var mongo = require('mongodb');
     
-    var host = process.env['DOTCLOUD_DB_MONGODB_HOST'] || 'localhost';
-    var port = process.env['DOTCLOUD_DB_MONGODB_PORT'] ||  27017;
+    var host = process.env['DOTCLOUD_DB_MONGODB_HOST'] || config.mongoHost;
+    var port = process.env['DOTCLOUD_DB_MONGODB_PORT'] || config.mongoPort;
     port = parseInt(port);
-    var user = process.env['DOTCLOUD_DB_MONGODB_LOGIN'] || undefined;
-    var pass = process.env['DOTCLOUD_DB_MONGODB_PASSWORD'] || undefined;
+    var user = process.env['DOTCLOUD_DB_MONGODB_LOGIN'] || config.mongoUser;
+    var pass = process.env['DOTCLOUD_DB_MONGODB_PASSWORD'] || config.mongoPass;
+    
+    console.log(host);
+    console.log(port);
+    console.log(user);
+    console.log(pass);
     
     var mongoServer = new mongo.Server(host, port, {});
     var db = new mongo.Db("admin", mongoServer, {auto_reconnect:true});
@@ -184,6 +198,7 @@
         });
     });
     
+    app.listen(process.env.PORT || 8080);
     var authError = "NO ERROR";
     db.open(function(err){
         if(err) 
@@ -199,11 +214,11 @@
                 {
                     authError = "2." + err;
                 }
-                app.listen(8080);
+                //app.listen(8080);
             });
         }
         else {
-            app.listen(8080);
+            //app.listen(8080);
         }
     });
 })();
