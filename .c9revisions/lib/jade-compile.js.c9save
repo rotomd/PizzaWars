@@ -6,3 +6,4 @@
 {"ts":1356811953664,"patch":[[{"diffs":[[0,"/runtime"],[1,".js"],[0,"\"], func"]],"start1":1387,"start2":1387,"length1":16,"length2":19}]],"length":2043,"saved":false}
 {"ts":1356811984542,"patch":[[{"diffs":[[0,"efine([\""],[1,"."],[0,"/lib/jad"]],"start1":1370,"start2":1370,"length1":16,"length2":17}]],"length":2044,"saved":false}
 {"ts":1356812010010,"patch":[[{"diffs":[[0,"efine([\""],[-1,"."],[1,"/scripts"],[0,"/lib/jad"]],"start1":1370,"start2":1370,"length1":17,"length2":24}]],"length":2051,"saved":false}
+{"contributors":[],"silentsave":false,"ts":1356894198757,"patch":[[{"diffs":[[0,"        "],[1,"//"],[0,"console."]],"start1":1516,"start2":1516,"length1":16,"length2":18}]],"length":2053,"saved":false}

@@ -6,10 +6,11 @@ html
         script(src="/scripts/lib/require/require.js", type="text/javascript", data-main="scripts/main")
     body
         #wrapper
-            h1.main-title Pizza Wars
-            include side-menu
-            #context
-                include shops
-                include participants
+            h1.main-title.section.group Pizza Wars
+            div.section.group
+                include side-menu
+                #content.col.span_3_of_4
+                    include shops
+                    include participants
     
         

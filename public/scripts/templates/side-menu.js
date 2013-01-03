@@ -7,7 +7,7 @@ with (locals || {}) {
 var interp;
 __jade.unshift({ lineno: 1, filename: __jade[0].filename });
 __jade.unshift({ lineno: 1, filename: __jade[0].filename });
-buf.push('<div id="side-menu">');
+buf.push('<div id="side-menu" class="col span_1_of_4">');
 __jade.unshift({ lineno: undefined, filename: __jade[0].filename });
 __jade.unshift({ lineno: 3, filename: __jade[0].filename });
 buf.push('<ul>');
