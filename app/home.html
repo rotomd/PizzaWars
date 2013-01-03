@@ -1,28 +1,51 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>Node Redirect Page</title>
+        <link rel="stylesheet" href="style/default.css" />
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/blitzer/jquery-ui.css" />
-        <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css"/>
         <style type="text/css">
-            body{ font-family: helvetica; }
-            .body-container{
-                width: 800px;
-                margin: auto;
-            }
-            h1{ margin-top: none; padding-top: none; width: 800px; font-size: 200%; }
+            
+            #shopsTable{width: 300px;}
         </style>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
         <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
         <script type="text/javascript">
             console.log("console is working correctly.");
+            $(function(){
+                $("#shopsTable").dataTable({
+                    "bJQueryUI": true,
+                    "bPaginate": false,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": false,
+                    "bAutoWidth": false,
+                    "bSearch": false
+                });
+            });
         </script>
 	</head>
 	<body>
         <div class="body-container" style="border: 1px solid blue;">
             <h1 class="ui-widget-header">Pizza Wars</h1>
-    		<h1>Sweet!</h1>
-    		<div>You are starting to figure things out.</div>
+    		
+            <div style="width: 300px;">
+                <table id="shopsTable">
+                    <thead>
+                        <tr><th>Shop</th><th>Ranking</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Amore</td><td>1</td></tr>
+                        <tr><td>America's Pie</td><td>2</td></tr>
+                    </tbody>
+                </table>
+                <img src="public/images/pizza-slice.png" alt="Pizza Slice 1" />
+                <img src="/public/images/pizza-slice.png" alt="Pizza Slice 2" />
+            </div>
         </div>
 	</body>
 </html>
