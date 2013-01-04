@@ -1,4 +1,0 @@
-{"ts":1356817684251,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
-{"contributors":[],"silentsave":false,"ts":1356817693298,"patch":[[{"diffs":[[1,"#side-menu\n    ul\n        li Rank Shops\n        li Get Next Shop"]],"start1":0,"start2":0,"length1":0,"length2":64}]],"length":64,"saved":false}
-{"contributors":[],"silentsave":false,"ts":1356984410172,"patch":[[{"diffs":[[0,"ide-menu"],[1,".col.span_2_of_8"],[0,"\n    ul\n"]],"start1":2,"start2":2,"length1":16,"length2":32}]],"length":80,"saved":false}
-{"ts":1356984419309,"patch":[[{"diffs":[[0,"pan_"],[-1,"2"],[1,"1"],[0,"_of_"],[-1,"8"],[1,"4"],[0,"\n   "]],"start1":16,"start2":16,"length1":14,"length2":14}]],"length":80,"saved":false}

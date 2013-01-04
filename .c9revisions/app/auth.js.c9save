@@ -1,2 +1,0 @@
-{"ts":1357264793564,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
-{"contributors":[],"silentsave":false,"ts":1357264820453,"patch":[[{"diffs":[[1,"/*\r\n*   module for authorization utils\r\n*/\r\n\r\nexports.isAuthorized = function(request) {\r\n    if (request.session.user_id) {\r\n        return { authorized: true, key: request.session.user_id };\r\n    }\r\n    return { authorized: false, key: \"\" };\r\n}"]],"start1":0,"start2":0,"length1":0,"length2":246}]],"length":246,"saved":false}

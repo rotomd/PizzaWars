@@ -1,2 +1,0 @@
-{"ts":1356817899531,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
-{"contributors":[],"silentsave":false,"ts":1356817967715,"patch":[[{"diffs":[[1,"#participants\n    table\n        tr\n            th Name\n        each participant in participants\n            tr\n                td= participant"]],"start1":0,"start2":0,"length1":0,"length2":142}]],"length":142,"saved":false}

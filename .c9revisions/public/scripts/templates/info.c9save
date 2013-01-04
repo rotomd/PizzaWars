@@ -1,2 +1,0 @@
-{"ts":1356812224234,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
-{"contributors":[],"silentsave":false,"ts":1356812227305,"patch":[[{"diffs":[[1,"jade templates are compiled to javascript functions that end up in this directory.\nthis all happens at server init."]],"start1":0,"start2":0,"length1":0,"length2":115}]],"length":115,"saved":false}

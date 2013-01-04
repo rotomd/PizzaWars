@@ -1,2 +1,0 @@
-{"ts":1356818174173,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
-{"contributors":[],"silentsave":false,"ts":1356818342964,"patch":[[{"diffs":[[1,"#participant-detail\n    h2= name\n    table\n        each shop, i in shops\n            tr\n                td #{i}- \n                td #{shop}\n            each comment in shop\n                tr \n                    td\n                    td= comment"]],"start1":0,"start2":0,"length1":0,"length2":248}]],"length":248,"saved":false}
