@@ -1,0 +1,2 @@
+{"ts":1357264141689,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1357264953447,"patch":[[{"diffs":[[1,"/*\r\n*   router for /authorized/\r\n*/\r\nvar auth = require('../auth.js');\r\n\r\nexports.json = function(req, res){    \r\n    res.send( auth.isAuthorized(req) );\r\n}"]],"start1":0,"start2":0,"length1":0,"length2":156}]],"length":156,"saved":false}

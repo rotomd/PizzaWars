@@ -1,0 +1,8 @@
+#participants
+    table
+        tr
+            th Name
+        if locals.participants
+            each participant in participants
+                tr
+                    td= participant

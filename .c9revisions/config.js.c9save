@@ -1,4 +1,0 @@
-{"ts":1356891214149,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
-{"contributors":[],"silentsave":false,"ts":1356891339162,"patch":[[{"diffs":[[1,"/*\n    configuration variables.\n    how would we protect this if we were concerned about security?\n*/\n\nexports.MONGO_CONNECTION_URI = 'mongodb://pizza:wars@alex.mongohq.com:10065/dev';"]],"start1":0,"start2":0,"length1":0,"length2":184}]],"length":184,"saved":false}
-{"ts":1356894649400,"patch":[[{"diffs":[[0,"0065/dev"],[1,"gg"],[0,"';"]],"start1":174,"start2":174,"length1":10,"length2":12}]],"length":186,"saved":false}
-{"ts":1356894660445,"patch":[[{"diffs":[[0,"/dev"],[-1,"gg"],[0,"';"]],"start1":178,"start2":178,"length1":8,"length2":6}]],"length":184,"saved":false}

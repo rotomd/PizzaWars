@@ -1,0 +1,14 @@
+{
+  "name": "pizza-wars",
+  "version": "0.0.1",
+  "private": false,
+  
+  "dependencies": {
+    "express": "3.x",
+    "jade": "*",
+    "stylus": "*",
+    "mongoose": "*",
+    "async": "*",
+    "mkdirp": "*"
+  }
+}

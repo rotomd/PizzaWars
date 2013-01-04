@@ -1,0 +1,4 @@
+{"ts":1357264633931,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1357264695022,"patch":[[{"diffs":[[1,"var mongoose = require('mongoose');\n\nvar loginSchema = new mongoose.Schema({\n    username: String,\n    password: String\n});\n\nvar Logins = mongoose.Model('Logins', loginSchema, 'logins');\n\nexports.Logins = Logins;"]],"start1":0,"start2":0,"length1":0,"length2":212}]],"length":212,"saved":false}
+{"contributors":[],"silentsave":false,"ts":1357265148756,"patch":[[{"diffs":[[1,"/*\n*   definition of login schema\n*/\n\n"],[0,"var mongoose"]],"start1":0,"start2":0,"length1":12,"length2":50}]],"length":250,"saved":false}
+{"ts":1357265417944,"patch":[[{"diffs":[[0,"ose."],[-1,"M"],[1,"m"],[0,"odel"]],"start1":181,"start2":181,"length1":9,"length2":9}]],"length":250,"saved":false}
