@@ -11,4 +11,7 @@
                     td= shop.rank
                     td= shop.name
                     td= shop.dateOrdered
-                    td= shop.address
+                    td
+                        each line in shop.address
+                            span #{line} <br/>
+                    

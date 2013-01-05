@@ -5,4 +5,10 @@
         if locals.participants
             each participant in participants
                 tr
-                    td= participant
+                    td= participant.first
+                    td= participant.last
+                    td
+                        each ranking, i in participant.rankings
+                            span #{i+1}: #{ranking} <br/>
+                                
+                        
