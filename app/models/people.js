@@ -4,8 +4,9 @@
 var mongoose = require('mongoose');
 
 var personSchema = new mongoose.Schema({
-    name: String,
-    shopList: Array    
+    first: String,
+    last: String,
+    rankings: Array    
 });
 
 var People = mongoose.model('People', personSchema, 'people');

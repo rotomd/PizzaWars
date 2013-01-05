@@ -66,10 +66,7 @@ var
         login: require('./routes/login.js'),
         authorized: require('./routes/authorized.js')
     },
-    
-    //for compiling jade:
-    jadeCompile = require('./lib/jade-compile').jadeCompile,
-    
+
     //database setup stuff.
     //todo: i should put this in a different file and require it.
     mongoose = require('mongoose'),
@@ -81,10 +78,11 @@ var
 /*******************************************************************
  * compile jade templates.
  ******************************************************************/ 
-jadeCompile(__dirname + '/views', __dirname + '/public/scripts/templates', {
-    client: true,
-    compileDebug: true
-});
+require('./lib/jade-compile')
+    .jadeCompile(__dirname + '/views', __dirname + '/public/scripts/templates', {
+        client: true,
+        compileDebug: true
+    });
  
 
 /**********************************************************************
