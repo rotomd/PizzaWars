@@ -1,13 +1,9 @@
 /*
     routing for index page,
     page accessed via /
-    todo: after reading some of the express source, i've realized that we don't need to precompile
-    our own server side templates.
-    
-    so get rid of that stupidness.
 */
 
-var render = require('../views/server-template-compiler.js').index,
+var 
     Shops = require('../models/shops.js').Shops,
     People = require('../models/people.js').People,
     async = require('async');
@@ -32,7 +28,10 @@ exports.html = function(req, res){
                 shops: results[0],
                 participants: results[1]
             };
-            res.send( render( locals ) );
+            
+            res.render('index', locals, function(err, html){
+                res.send(html);
+            });
         } else {
             console.log(err);
         }
