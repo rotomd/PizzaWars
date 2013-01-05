@@ -1,6 +1,6 @@
-define(["/scripts/lib/jade/runtime.js"], function() { return function(locals, attrs, escape, rethrow, merge) {
+define(["/scripts/lib/jade-runtime.js"], function(jade) { return function(locals, attrs, escape, rethrow, merge) {
 attrs = attrs || jade.attrs; escape = escape || jade.escape; rethrow = rethrow || jade.rethrow; merge = merge || jade.merge;
-var __jade = [{ lineno: 1, filename: "/var/lib/stickshift/8ccdbd49be4442d8a042e69f70cb1e77/app-root/data/364591/app/views/templates/shops.jade" }];
+var __jade = [{ lineno: 1, filename: "/var/lib/stickshift/c00fdb5af15e43dcb7a8c26a8b7cfc41/app-root/data/370242/app/views/shops.jade" }];
 try {
 var buf = [];
 with (locals || {}) {
@@ -97,11 +97,52 @@ __jade.unshift({ lineno: undefined, filename: __jade[0].filename });
 __jade.shift();
 buf.push('</td>');
 __jade.shift();
-__jade.unshift({ lineno: 14, filename: __jade[0].filename });
+__jade.unshift({ lineno: 15, filename: __jade[0].filename });
 buf.push('<td>');
-var __val__ = shop.address
-buf.push(escape(null == __val__ ? "" : __val__));
 __jade.unshift({ lineno: undefined, filename: __jade[0].filename });
+__jade.unshift({ lineno: 15, filename: __jade[0].filename });
+// iterate shop.address
+;(function(){
+  if ('number' == typeof shop.address.length) {
+
+    for (var $index = 0, $$l = shop.address.length; $index < $$l; $index++) {
+      var line = shop.address[$index];
+
+__jade.unshift({ lineno: 15, filename: __jade[0].filename });
+__jade.unshift({ lineno: 16, filename: __jade[0].filename });
+buf.push('<span>');
+__jade.unshift({ lineno: undefined, filename: __jade[0].filename });
+__jade.unshift({ lineno: 16, filename: __jade[0].filename });
+buf.push('' + escape((interp = line) == null ? '' : interp) + ' <br/>');
+__jade.shift();
+__jade.shift();
+buf.push('</span>');
+__jade.shift();
+__jade.shift();
+    }
+
+  } else {
+    var $$l = 0;
+    for (var $index in shop.address) {
+      $$l++;      var line = shop.address[$index];
+
+__jade.unshift({ lineno: 15, filename: __jade[0].filename });
+__jade.unshift({ lineno: 16, filename: __jade[0].filename });
+buf.push('<span>');
+__jade.unshift({ lineno: undefined, filename: __jade[0].filename });
+__jade.unshift({ lineno: 16, filename: __jade[0].filename });
+buf.push('' + escape((interp = line) == null ? '' : interp) + ' <br/>');
+__jade.shift();
+__jade.shift();
+buf.push('</span>');
+__jade.shift();
+__jade.shift();
+    }
+
+  }
+}).call(this);
+
+__jade.shift();
 __jade.shift();
 buf.push('</td>');
 __jade.shift();
@@ -147,11 +188,52 @@ __jade.unshift({ lineno: undefined, filename: __jade[0].filename });
 __jade.shift();
 buf.push('</td>');
 __jade.shift();
-__jade.unshift({ lineno: 14, filename: __jade[0].filename });
+__jade.unshift({ lineno: 15, filename: __jade[0].filename });
 buf.push('<td>');
-var __val__ = shop.address
-buf.push(escape(null == __val__ ? "" : __val__));
 __jade.unshift({ lineno: undefined, filename: __jade[0].filename });
+__jade.unshift({ lineno: 15, filename: __jade[0].filename });
+// iterate shop.address
+;(function(){
+  if ('number' == typeof shop.address.length) {
+
+    for (var $index = 0, $$l = shop.address.length; $index < $$l; $index++) {
+      var line = shop.address[$index];
+
+__jade.unshift({ lineno: 15, filename: __jade[0].filename });
+__jade.unshift({ lineno: 16, filename: __jade[0].filename });
+buf.push('<span>');
+__jade.unshift({ lineno: undefined, filename: __jade[0].filename });
+__jade.unshift({ lineno: 16, filename: __jade[0].filename });
+buf.push('' + escape((interp = line) == null ? '' : interp) + ' <br/>');
+__jade.shift();
+__jade.shift();
+buf.push('</span>');
+__jade.shift();
+__jade.shift();
+    }
+
+  } else {
+    var $$l = 0;
+    for (var $index in shop.address) {
+      $$l++;      var line = shop.address[$index];
+
+__jade.unshift({ lineno: 15, filename: __jade[0].filename });
+__jade.unshift({ lineno: 16, filename: __jade[0].filename });
+buf.push('<span>');
+__jade.unshift({ lineno: undefined, filename: __jade[0].filename });
+__jade.unshift({ lineno: 16, filename: __jade[0].filename });
+buf.push('' + escape((interp = line) == null ? '' : interp) + ' <br/>');
+__jade.shift();
+__jade.shift();
+buf.push('</span>');
+__jade.shift();
+__jade.shift();
+    }
+
+  }
+}).call(this);
+
+__jade.shift();
 __jade.shift();
 buf.push('</td>');
 __jade.shift();
