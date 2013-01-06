@@ -53,7 +53,6 @@
 */
 
 var 
-
     express = require('express'),
     app = express(),
     
@@ -151,11 +150,11 @@ db.once('open', function(){
 
 //routes.
 app.get('/', routes.index.html);    
-app.get('/shops', routes.shops.json);
-app.get('/people', routes.people.json);
-app.post('/login', routes.login.post);
-app.get('/authorized', routes.authorized.json);
-app.post("/shop", routes.shop.post);
+app.get('/api/shops', routes.shops.json);
+app.get('/api/people', routes.people.json);
+app.post('/api/login', routes.login.post);
+app.get('/api/authorized', routes.authorized.json);
+app.post("/api/shop", routes.shop.post);
 
 
 

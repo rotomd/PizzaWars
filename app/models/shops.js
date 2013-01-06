@@ -8,7 +8,8 @@ var shopSchema = new mongoose.Schema({
     address: Array,
     available: Boolean,
     key: String,
-    dateOrdered: Date    
+    dateOrdered: Date,
+    score: Number
 });
 
 var Shops = mongoose.model('Shops', shopSchema, 'shops');
