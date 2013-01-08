@@ -53,7 +53,6 @@
 */
 
 var 
-
     express = require('express'),
     app = express(),
     
@@ -64,9 +63,15 @@ var
         people: require('./routes/people.js'),
         shops: require('./routes/shops.js'),
         login: require('./routes/login.js'),
-        authorized: require('./routes/authorized.js')
+        authorized: require('./routes/authorized.js'),
+        shop: require('./routes/shop.js'),
+        person: require('./routes/person.js'),
+        rankings: require('./routes/rankings.js')
     },
-
+    
+    //for compiling jade:
+    jadeCompile = require('./lib/jade-compile').jadeCompile,
+    
     //database setup stuff.
     //todo: i should put this in a different file and require it.
     mongoose = require('mongoose'),
@@ -78,11 +83,10 @@ var
 /*******************************************************************
  * compile jade templates.
  ******************************************************************/ 
-require('./lib/jade-compile')
-    .jadeCompile(__dirname + '/views', __dirname + '/public/scripts/templates', {
-        client: true,
-        compileDebug: true
-    });
+jadeCompile(__dirname + '/views', __dirname + '/public/scripts/templates', {
+    client: true,
+    compileDebug: true
+});
  
 
 /**********************************************************************
@@ -105,7 +109,7 @@ db.once('open', function(){
  * *****************************************************************/
 (function (){
     var port;
-    port = (port = process.env.PORT) != null ? port : 3000;
+    port = process.env.PORT || 8080; // changed port since 8080 is what dotcloud runs under.
     
     //why isn't this working?
     //we can just set stylus to watch files while we're developing, but this would be more convenient.
@@ -148,10 +152,13 @@ db.once('open', function(){
 
 //routes.
 app.get('/', routes.index.html);    
-app.get('/shops', routes.shops.json);
-app.get('/people', routes.people.json);
-app.post('/login', routes.login.post);
-app.get('/authorized', routes.authorized.json);
+app.get('/api/shops', routes.shops.json);
+app.get('/api/people', routes.people.json);
+app.post('/api/login', routes.login.post);
+app.get('/api/authorized', routes.authorized.json);
+app.post("/api/shop", routes.shop.post);
+app.get("/api/people/:person", routes.person.json);
+app.post("/api/rankings", routes.rankings.post);
 
 
 
