@@ -57,7 +57,7 @@ var
     app = express(),
     
     //the function for configuring the routes
-    configureRoutes = require('route-config.js'),
+    configureRoutes = require('./route-config.js'),
     
     //for compiling jade:
     jadeCompile = require('./lib/jade-compile').jadeCompile,
