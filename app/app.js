@@ -56,18 +56,8 @@ var
     express = require('express'),
     app = express(),
     
-    //object of all the possible routes for the application
-    //todo: better would be to extract all of the routing stuff into a seperate file, and just require that.
-    routes = {
-        index: require('./routes/index.js'),
-        people: require('./routes/people.js'),
-        shops: require('./routes/shops.js'),
-        login: require('./routes/login.js'),
-        authorized: require('./routes/authorized.js'),
-        shop: require('./routes/shop.js'),
-        person: require('./routes/person.js'),
-        rankings: require('./routes/rankings.js')
-    },
+    //the function for configuring the routes
+    configureRoutes = require('route-config.js'),
     
     //for compiling jade:
     jadeCompile = require('./lib/jade-compile').jadeCompile,
@@ -150,15 +140,8 @@ db.once('open', function(){
 })();
 
 
-//routes.
-app.get('/', routes.index.html);    
-app.get('/api/shops', routes.shops.json);
-app.get('/api/people', routes.people.json);
-app.post('/api/login', routes.login.post);
-app.get('/api/authorized', routes.authorized.json);
-app.post("/api/shop", routes.shop.post);
-app.get("/api/people/:person", routes.person.json);
-app.post("/api/rankings", routes.rankings.post);
+configureRoutes(app);
+
 
 
 
