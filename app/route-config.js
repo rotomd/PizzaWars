@@ -25,7 +25,7 @@ exports = module.exports = function(app){
     //app.post('/login', login.post);
     //app.get('/authorized', authorized.json);
     
-    app.get('/', index.html);    
+    //app.get('/', index.html);    
     app.get('/api/shops', shops.json);
     app.get('/api/people', people.json);
     app.post('/api/login', login.post);

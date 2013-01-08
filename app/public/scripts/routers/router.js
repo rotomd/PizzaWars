@@ -13,6 +13,7 @@ define([
         
         index: function(){
             console.log('index route');
+            
         },
         
         people: function(person){
@@ -24,9 +25,21 @@ define([
         }
         
         
-        
-        
 	});
+    
+    function initialize(){
+        var workspace = new Workspace();
+        
+        workspace.on('route:index', function(){
+            console.log('index route event');
+        });
+        
+        workspace.on('route:shops', function(){
+            console.log('shops route');
+        });
+    }
 
-	return Workspace;
+	return {
+        initialize: initialize   
+	}
 });
