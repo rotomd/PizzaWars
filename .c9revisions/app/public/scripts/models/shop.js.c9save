@@ -1,4 +1,0 @@
-{"ts":1357516312771,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
-{"contributors":[],"silentsave":false,"ts":1357516438859,"patch":[[{"diffs":[[1,"/*\n*   model for shop\n*/\n\ndefine(\n    ['backbone', 'jquery', 'underscore'],\n    function(Backbone, $, _){\n        var Shop = Backbone.Model.extend({\n            urlRoot: '/shops'\n        });\n    }\n);"]],"start1":0,"start2":0,"length1":0,"length2":199}]],"length":199,"saved":false}
-{"ts":1357516480514,"patch":[[{"diffs":[[0,"    });\n"],[1,"        \n        return Shop;\n"],[0,"    }\n);"]],"start1":183,"start2":183,"length1":16,"length2":46}]],"length":229,"saved":false}
-{"ts":1357516605655,"patch":[[{"diffs":[[0,"var Shop"],[1,"Model"],[0," = Backb"]],"start1":114,"start2":114,"length1":16,"length2":21},{"diffs":[[0,"urn Shop"],[1,"Model"],[0,";\n    }\n"]],"start1":216,"start2":216,"length1":16,"length2":21}]],"length":239,"saved":false}
