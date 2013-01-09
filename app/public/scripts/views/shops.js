@@ -3,18 +3,31 @@
 */
 
 define(
-    ['backbone', 'jquery', 'underscore', 'templates/shops', 'datatables'],     
-    function(Backbone, $, _, indexTemplate, shopsTemplate, dataTables){
+    ['backbone', 'jquery', 'underscore', 'templates/shops', 'datatables', 'collections/shops'],     
+    function(Backbone, $, _, indexTemplate, shopsTemplate, dataTables, ShopsCollection){
         var ShopsView = Backbone.View.extend({
            
             //the element for this view
-            el: '#shops table',
+            //el: 'div',
            
-            template: shopsTemplate,
+            //template: shopsTemplate,
            
             initialize: function(){
-                this.$el.dataTable({});
-            }           
+                //this.collection = new ShopsCollection();
+                
+                //this.$el.dataTable({});
+            },
+            
+            render: function(){
+                var $table = $('<table>');
+                this.$el.html( $table );
+                
+                //window.shops = this.collection;
+                //console.log(this.collection);
+                //$table.dataTable( this.collection.toJSON() );
+                return this;
+                
+            }
         });
         
         return ShopsView;

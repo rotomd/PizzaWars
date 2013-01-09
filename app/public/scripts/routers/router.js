@@ -1,7 +1,10 @@
 define([
     'jquery',
-	'backbone'
-], function( $, Backbone ) {
+	'backbone',
+    'views/shops',
+    'views/participants',
+    'collections/shops'
+], function( $, Backbone, ShopsView, ParticipantsView, ShopCollection ) {
 
 	var Workspace = Backbone.Router.extend({
         
@@ -11,7 +14,7 @@ define([
             'shops': 'shops'
 		},
         
-        index: function(){
+        /*index: function(){
             console.log('index route');
             
         },
@@ -22,7 +25,7 @@ define([
         
         shops: function(shop){
             console.log('shop route');
-        }
+        }*/
         
         
 	});
@@ -32,6 +35,22 @@ define([
         
         workspace.on('route:index', function(){
             console.log('index route event');
+            
+            var shops = new ShopCollection();
+            
+            $.when( shops.fetch() ).done( function(data){
+                var shopsView = new ShopsView({collection: shops});
+                
+                shopsView.render()
+                    .$el
+                        .appendTo('#content')
+                        .find('table')
+                            .dataTable();
+            });
+            
+            //var shopsView = new ShopsView();
+            
+            //shopsView.render();
         });
         
         workspace.on('route:shops', function(){
