@@ -31,7 +31,7 @@ require.config({
 
 require([
   // load the initialization function
-  'views/index', 'routers/router', 'backbone', 'jquery'
+  'views/index', 'router', 'backbone', 'jquery'
 ], function(IndexView, workspace, Backbone, $){
     
     //from here on we're manipulating the dom,

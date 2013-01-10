@@ -1,5 +1,6 @@
 /*
 *   collection for shops
+*   initializes and exposes the shopCollection.
 */
 
 define(
@@ -22,6 +23,6 @@ define(
             }
         });
         
-        return ShopCollection;
+        return new ShopCollection();
     }
 );

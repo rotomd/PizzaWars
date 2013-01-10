@@ -1,3 +1,9 @@
+/*
+*   definition of router.
+*   exposes the router object, not the constructor.
+*/
+
+
 define([
     'jquery',
 	'backbone',
@@ -6,7 +12,7 @@ define([
     'collections/shops'
 ], function( $, Backbone, ShopsView, ParticipantsView, ShopCollection ) {
 
-	var Workspace = Backbone.Router.extend({
+	var Router = Backbone.Router.extend({
         
 		routes:{
 			'': 'index',
@@ -14,26 +20,12 @@ define([
             'shops': 'shops'
 		},
         
-        /*index: function(){
-            console.log('index route');
-            
-        },
         
-        people: function(person){
-            console.log('person route');
-        },
+        /*
+        *   routing functions
+        */
         
-        shops: function(shop){
-            console.log('shop route');
-        }*/
-        
-        
-	});
-    
-    function initialize(){
-        var workspace = new Workspace();
-        
-        workspace.on('route:index', function(){
+        index: function(){
             console.log('index route event');
             
             var shops = new ShopCollection();
@@ -46,19 +38,23 @@ define([
                         .appendTo('#content')
                         .find('table')
                             .dataTable();
-            });
-            
-            //var shopsView = new ShopsView();
-            
-            //shopsView.render();
-        });
+            });            
+        },
         
-        workspace.on('route:shops', function(){
-            console.log('shops route');
-        });
-    }
-
-	return {
-        initialize: initialize   
-	}
+        people: function(person){
+            console.log('person route');
+        },
+        
+        shops: function(shop){
+            console.log('shop route');
+        },
+        
+        
+        //a function called post-initialization to get history handling in place
+        startHistory: function(){
+            Backbone.history.start();
+        }        
+	});
+    
+    return new Router();
 });

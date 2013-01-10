@@ -1,5 +1,6 @@
 /*
 *   model for shop
+*   exposes a constructor
 */
 
 define(
