@@ -4,7 +4,7 @@
 */
 
 define(
-    ['backbone', 'jquery', 'underscore', 'models/shop'],
+    ['backbone', 'jquery', 'underscore', 'models/ShopModel'],
     function(Backbone, $, _, ShopModel){
         var ShopCollection = Backbone.Model.extend({
             
@@ -14,11 +14,11 @@ define(
             
             initialize: function(){
                 console.log('getting shops');
-                this.fetch();
+                //this.fetch();
                 
-                this.on('reset', function() {
-                    console.log('shop collection reset');
-                });
+                //this.on('all', function(eventName) {
+                //    console.log('shop collection event: ' + eventName);
+                //});
                 
             }
         });

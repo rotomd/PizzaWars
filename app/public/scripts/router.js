@@ -7,10 +7,9 @@
 define([
     'jquery',
 	'backbone',
-    'views/shops',
-    'views/participants',
-    'collections/shops'
-], function( $, Backbone, ShopsView, ParticipantsView, ShopCollection ) {
+    'underscore',
+    'views/IndexView'
+], function( $, Backbone, _, IndexView) {
 
 	var Router = Backbone.Router.extend({
         
@@ -27,18 +26,7 @@ define([
         
         index: function(){
             console.log('index route event');
-            
-            var shops = new ShopCollection();
-            
-            $.when( shops.fetch() ).done( function(data){
-                var shopsView = new ShopsView({collection: shops});
-                
-                shopsView.render()
-                    .$el
-                        .appendTo('#content')
-                        .find('table')
-                            .dataTable();
-            });            
+            new IndexView();            
         },
         
         people: function(person){
@@ -52,7 +40,9 @@ define([
         
         //a function called post-initialization to get history handling in place
         startHistory: function(){
-            Backbone.history.start();
+            Backbone.history.start({
+                pushState: true
+            });
         }        
 	});
     

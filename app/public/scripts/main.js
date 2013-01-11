@@ -31,25 +31,15 @@ require.config({
 
 require([
   // load the initialization function
-  'views/index', 'router', 'backbone', 'jquery'
-], function(IndexView, workspace, Backbone, $){
+  'router', 'views/SideMenuView'
+], function(router, SideMenuView){
     
     //from here on we're manipulating the dom,
     // so exec on doc.ready.
     $(document).ready(function(){
-        // Initialize routing and start Backbone.history()
-        //new Workspace();
-        workspace.initialize();
         
-    	Backbone.history.start({
-            pushState: true
-            
-            //this handy option makes it so that the current route is not rendered
-            //(because it already has been rendered by the server.)
-            //silent: true
-        });
+        var sideMenu = new SideMenuView();          
+        router.startHistory();
         
-        // Initialize the Index view
-        //new IndexView();    
     });
 });
