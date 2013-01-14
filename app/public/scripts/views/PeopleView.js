@@ -12,7 +12,7 @@ define(
                 
                 var that = this;
                 
-                that.collection.on('reset', function(){
+                that.collection.on('sync', function(){
                     that.render(); 
                 });  
             },
@@ -21,14 +21,31 @@ define(
                 console.log('people view render');
                 //console.log(this);
                 
+                console.log(this.collection);
+                
                 this.$el.dataTable({
                     aaData: this.collection.toJSON(),
                     aoColumnDefs: [
                         {
                             aTargets: [0],
                             mData: function(source, type, val){
-                                return val;
-                            }
+                                return source.first || '';
+                            },
+                            sTitle: 'First Name'
+                        },
+                        {
+                            aTargets: [1],
+                            mData: function(source, type, val){
+                                return source.last || '';
+                            },
+                            sTitle: 'Last Name'
+                        },
+                        {
+                            aTargets: [2],
+                            mData: function(source, type, val){
+                                return source.rankings[0];
+                            },
+                            sTitle: 'Favorite Shop'
                         }
                     ]
                 });

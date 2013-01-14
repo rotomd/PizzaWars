@@ -12,7 +12,7 @@ define(
                 
                 var that = this;
                 
-                that.collection.on('reset', function(){
+                that.collection.on('sync', function(){
                     that.render(); 
                 });
             },
@@ -20,14 +20,20 @@ define(
             render: function(){
                 console.log('shop view render');
                 
-                console.log(this.collection.toJSON());
+                //console.log('slice? ' + this.collection.toJSON().slice);
                 
                 this.$el.dataTable({
                     aaData: this.collection.toJSON(),
                     aoColumnDefs: [
                         {
                             aTargets: [0],
-                            mData: 'available'
+                            mData: 'name',
+                            sTitle: 'Name'
+                        },
+                        {
+                            aTargets: [1],
+                            mData: 'score',
+                            sTitle: 'Score'
                         }
                     ]
                 });

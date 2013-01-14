@@ -7,6 +7,9 @@ define(
     ['backbone', 'jquery', 'underscore'],
     function(Backbone, $, _){
         var PersonModel = Backbone.Model.extend({
+            
+            idAttribute: '_id',
+            
             defaults: {
                 
             },

@@ -36,7 +36,7 @@ define(
                     el: $peopleTable[0]
                 } );
                 
-                personCollection.fetch({
+                /*personCollection.fetch({
                     success: function(collection, response, options){
                         personCollection.trigger('reset');
                     }
@@ -45,7 +45,9 @@ define(
                     success: function(collection, response, options){
                         shopCollection.trigger('reset');
                     }
-                });
+                });*/
+                personCollection.fetch();
+                shopCollection.fetch();
            
             }           
         });

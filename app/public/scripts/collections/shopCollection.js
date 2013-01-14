@@ -6,7 +6,7 @@
 define(
     ['backbone', 'jquery', 'underscore', 'models/ShopModel'],
     function(Backbone, $, _, ShopModel){
-        var ShopCollection = Backbone.Model.extend({
+        var ShopCollection = Backbone.Collection.extend({
             
             url: '/api/shops',
             

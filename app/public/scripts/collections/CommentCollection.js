@@ -6,7 +6,7 @@
 define(
     ['backbone', 'jquery', 'underscore', 'models/Comment'],
     function(Backbone, $, _, CommentModel){
-        var CommentCollection = Backbone.Model.extend({
+        var CommentCollection = Backbone.Collection.extend({
             
             url: '/api/comments:shop',
             
