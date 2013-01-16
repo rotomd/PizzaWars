@@ -8,14 +8,18 @@ define([
     'jquery',
 	'backbone',
     'underscore',
-    'views/IndexView'
-], function( $, Backbone, _, IndexView) {
+    'views/IndexView',
+    'views/RankingView',
+    'collections/shopCollection'
+], function( $, Backbone, _, IndexView, RankingView, shopCollection) {
+    
+    var contentArea = $('#content');
 
 	var Router = Backbone.Router.extend({
         
 		routes:{
 			'': 'index',
-            'people': 'people',
+            'ranking': 'ranking',
             'shops': 'shops'
 		},
         
@@ -25,12 +29,16 @@ define([
         */
         
         index: function(){
-            console.log('index route event');
+            contentArea.empty();
             new IndexView();            
         },
         
-        people: function(person){
-            console.log('person route');
+        ranking: function(){
+            contentArea.empty();
+            new RankingView({
+                el: contentArea[0],
+                collection: shopCollection
+            });
         },
         
         shops: function(shop){

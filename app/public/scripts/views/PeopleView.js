@@ -43,7 +43,7 @@ define(
                         {
                             aTargets: [2],
                             mData: function(source, type, val){
-                                return source.rankings[0];
+                                return source.rankings[0] || '';
                             },
                             sTitle: 'Favorite Shop'
                         }

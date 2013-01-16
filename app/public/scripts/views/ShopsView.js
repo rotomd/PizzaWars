@@ -19,23 +19,29 @@ define(
             
             render: function(){
                 console.log('shop view render');
-                
-                //console.log('slice? ' + this.collection.toJSON().slice);
-                
+             
                 this.$el.dataTable({
                     aaData: this.collection.toJSON(),
                     aoColumnDefs: [
                         {
                             aTargets: [0],
-                            mData: 'name',
+                            mData: function(source, type, val){
+                                return source.name || '';
+                            },
                             sTitle: 'Name'
                         },
                         {
                             aTargets: [1],
-                            mData: 'score',
+                            mData: function(source, type, val){
+                                if(type === 'display') {
+                                    return source.score || '';
+                                }
+                                return source.score || -1;
+                            },
                             sTitle: 'Score'
                         }
-                    ]
+                    ],
+                    aaSorting: [[1, 'desc']]
                 });
             }
         });

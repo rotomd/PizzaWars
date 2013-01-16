@@ -1,4 +1,7 @@
-jade = (function(exports){
+define([], 
+    function(){
+        var exports = {};
+        
 /*!
  * Jade - runtime
  * Copyright(c) 2010 TJ Holowaychuk <tj@vision-media.ca>
@@ -147,7 +150,7 @@ exports.escape = function escape(html){
  * @param {String} lineno
  * @api private
  */
-
+/*
 exports.rethrow = function rethrow(err, filename, lineno){
   if (!filename) throw err;
 
@@ -171,8 +174,8 @@ exports.rethrow = function rethrow(err, filename, lineno){
   err.message = (filename || 'Jade') + ':' + lineno
     + '\n' + context + '\n\n' + err.message;
   throw err;
-};
+};*/
 
   return exports;
 
-})({});
+});
