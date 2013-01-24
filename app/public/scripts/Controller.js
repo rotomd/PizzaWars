@@ -23,6 +23,8 @@ define([
     //person info view
     'people/views/info/Person.layout',
     
+    'people/person.controller',
+    
     //other stuff
     'templates/index-layout'
     
@@ -40,6 +42,9 @@ function(Backbone, mr, _, $, app, vent,
     
     //person info view
     PersonLayout,
+    
+    //controller for all things people related.
+    personController,
     
     //other stuff
     indexTemplate
@@ -86,15 +91,11 @@ function(Backbone, mr, _, $, app, vent,
             
             //get the model for the person with this id
             var person = new PersonModel({id: id});
-            //put the layout for a person info view in the main region of the page
-            var layout = new PersonLayout();
-            app.mainRegion.show(layout);
-            
-            
-            
-            
-            
-           // layout.shops.show(new PersonShopCollectionView());
+            person.fetch({
+                success: function(model, response, options) {
+                    personController.initPersonInfoView(model);
+                }
+            });
         },
         
         catchall: function(attemptedUrl){

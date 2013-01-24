@@ -45,7 +45,7 @@ exports.jadeCompile = function(path, out, options) {
             var dir = resolve(dirname(path));
             mkdirp(dir, 0755, function(err){
               if (err) throw err;
-              fs.writeFile(path, 'define(["/scripts/lib/jade-runtime.js"], function(jade) { return function' + fn + ' });', function(err){
+              fs.writeFile(path, 'define(["lib/jade-runtime"], function(jade) { return function' + fn + ' });', function(err){
                 if (err) throw err;
                 //console.log('  33[90mrendered 33[36m%s33[0m', path);
               });

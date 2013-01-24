@@ -6,6 +6,7 @@
 //configure require.js
 // simplify requiring the common libraries.
 require.config({
+    baseUrl: "/scripts",
     shim: {
         'underscore': {
     		exports: '_'
@@ -27,7 +28,7 @@ require.config({
         marionette: 'lib/backbone.marionette',
         'backbone.wreqr': 'lib/backbone.wreqr',
         'backbone.babysitter': 'lib/backbone.babysitter'
-    }
+    }    
 });
 
 define([

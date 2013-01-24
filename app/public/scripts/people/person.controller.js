@@ -38,6 +38,7 @@ function(Backbone, mr, _, $, app, vent,
         
         initPersonInfoView: function(person){
             //put the person info view layout on the page
+            console.log(person);
             
             //render a new person info view into that layout, 
             //  passing in the person as the model.
@@ -49,7 +50,7 @@ function(Backbone, mr, _, $, app, vent,
             var rankings = person.get('rankings');
             
             
-            layout.shops.show(new PersonShopCollectionView({collection: rankings}));
+            layout.shops.show( new PersonShopCollectionView({shops: rankings}) );
         }
     });
     

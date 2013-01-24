@@ -13,7 +13,7 @@ define([
 	return mr.AppRouter.extend({
         appRoutes: {
             '': 'index',
-            'person:id': 'person',
+            'person/:id': 'person',
             '*notFound': 'catchall'
         }
 	});

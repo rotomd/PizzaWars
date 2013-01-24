@@ -5,18 +5,20 @@
 define([
     'backbone' ,
     'marionette',
-    'jquery'
+    'jquery',
+    'templates/person.info.layout'
 ], 
-function(Backbone, mr, $){
+function(Backbone, mr, $, template){
     
     var DivRegion = mr.Region.extend({
         tagName: 'div'
     });
     
-    var Layout = mr.Layout.extend({        
+    var Layout = mr.Layout.extend({  
+        template: template,
         regions: {
-            people: DivRegion,
-            shops: DivRegion
+            person: '.person-info-name',
+            shops: '.person-info-shops'
         }                
     });
     
