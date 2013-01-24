@@ -1,22 +1,27 @@
 /*
 *   app initialization code.
-*   needed?
 */
 define([
   'jquery', 
   'underscore', 
   'backbone',
-  'datatables',
-  'highcharts',
-  'router'
-], function($, _, Backbone, dataTables, highcharts, router){
+  'marionette',
   
-  var initialize = function(){
-    // Pass in our Router module and call it's initialize function
-    router.initialize();
-  };
-
-  return { 
-    initialize: initialize
-  };
+  'views/HeaderView'
+], function($, _, Backbone, mr, HeaderView){
+  
+    var app = new mr.Application();
+    
+    app.addRegions({
+        mainRegion: '#content',
+        sidemenuRegion: '#side-menu',
+        headerRegion: '#header'
+    });
+    
+    app.addInitializer(function(options){        
+        app.headerRegion.attachView(new HeaderView());
+    });
+    
+    return app;
+    
 });

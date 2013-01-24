@@ -25,7 +25,7 @@ define(
             },
             
             nextShop: function(event){
-                
+                console.log( 'you need to post to /api/shop' );
             }
         });
         

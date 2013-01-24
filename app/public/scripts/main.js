@@ -23,23 +23,27 @@ require.config({
         underscore: 'lib/underscore',
         backbone: 'lib/backbone',
         datatables: 'lib/datatables',
-        highcharts: 'lib/highcharts/js/highcharts'
+        highcharts: 'lib/highcharts/js/highcharts',
+        marionette: 'lib/backbone.marionette',
+        'backbone.wreqr': 'lib/backbone.wreqr',
+        'backbone.babysitter': 'lib/backbone.babysitter'
     }
 });
 
-
-
-require([
-  // load the initialization function
-  'router', 'views/SideMenuView'
-], function(router, SideMenuView){
+define([
+    'backbone',
+    'app',
+    'Router',
+    'Controller'
+    ], 
+    function(Backbone, app, Router, Controller){
     
-    //from here on we're manipulating the dom,
-    // so exec on doc.ready.
-    $(document).ready(function(){
+        app.start();
         
-        var sideMenu = new SideMenuView();          
-        router.startHistory();
+        new Router({
+            controller: new Controller()
+        });
+        
+        Backbone.history.start({pushState: true});
         
     });
-});

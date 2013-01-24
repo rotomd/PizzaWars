@@ -1,0 +1,7 @@
+//html for a single shop item on the index view. 
+td= locals.rank
+td= locals.name
+td= locals.dateOrdered
+td
+    each line in locals.address
+        span #{line} <br/>
