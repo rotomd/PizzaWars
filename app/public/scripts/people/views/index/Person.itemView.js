@@ -9,12 +9,9 @@ define([
     'marionette',
     'jquery',
     'templates/people.index.itemView',
-    'vent',
-    
-    'people/person.controller'
-    
+    'vent'
     ], 
-    function(Backbone, _, mr, $, template, vent, controller){
+    function(Backbone, _, mr, $, template, vent){
         
         var ItemView = mr.ItemView.extend({
             template:  template,
@@ -27,7 +24,7 @@ define([
             itemClick: function(e){
                 var id = this.model.id;                
                 Backbone.history.navigate('/person/' + id);
-                controller.trigger('click:index:person', this.model);
+                vent.trigger('click:index:person', this.model);
             }
         });
         

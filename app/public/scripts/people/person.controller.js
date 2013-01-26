@@ -33,7 +33,7 @@ function(Backbone, mr, _, $, app, vent,
     var Controller = mr.Controller.extend({
         
         initialize: function(){                     
-            this.on('click:index:person', this.initPersonInfoView);            
+            vent.on('click:index:person', this.initPersonInfoView);            
         },
         
         initPersonInfoView: function(person){

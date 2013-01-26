@@ -35,15 +35,18 @@ define([
     'backbone',
     'app',
     'Router',
-    'Controller'
+    'Controller',
+    'login/login.controller'
     ], 
-    function(Backbone, app, Router, Controller){
+    function(Backbone, app, Router, Controller, loginController){
     
         app.start();
         
         new Router({
             controller: new Controller()
         });
+        
+        loginController.configureAuthorization();
         
         Backbone.history.start({pushState: true});
         

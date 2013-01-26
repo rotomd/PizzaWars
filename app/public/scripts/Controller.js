@@ -98,6 +98,18 @@ function(Backbone, mr, _, $, app, vent,
             });
         },
         
+        rankShops: function(){
+            
+            //get the model for the current user
+            //var person = new PersonModel({id: id});
+//            person.fetch({
+//                success: function(model, response, options) {
+//                    personController.initPersonInfoView(model);
+//                }
+//            });
+            
+        },
+        
         catchall: function(attemptedUrl){
             console.log(attemptedUrl);
         }

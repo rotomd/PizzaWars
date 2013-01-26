@@ -8,6 +8,7 @@ define([
   'marionette',
   
   'views/HeaderView'
+  
 ], function($, _, Backbone, mr, HeaderView){
   
     var app = new mr.Application();
@@ -15,12 +16,14 @@ define([
     app.addRegions({
         mainRegion: '#content',
         sidemenuRegion: '#side-menu',
-        headerRegion: '#header'
+        headerRegion: '#header',
+        loginRegion: '#login-container'
     });
     
     app.addInitializer(function(options){        
         app.headerRegion.attachView(new HeaderView());
     });
+
     
     return app;
     
