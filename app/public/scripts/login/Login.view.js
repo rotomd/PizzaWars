@@ -11,10 +11,7 @@ define([
     function(Backbone, mr, template, vent){
         return mr.ItemView.extend({
             template: template,
-            initialize: function(){
-                //console.log('initing login view');
-                //console.log(this.el)
-            },
+         
             events: {
                 'click input[type="button"]': 'loginClick' 
             },
@@ -22,21 +19,12 @@ define([
             loginClick: function(event){
                 event.preventDefault();
                 
-                console.log('login click');
+                var authInfo = {
+                    username: this.$('#login-username').val(),
+                    password: this.$('#login-password').val()
+                };
                 
-                $.ajax({
-                    type: 'post',
-                    data: {
-                        username: this.$('#login-username').val(),
-                        password: this.$('#login-password').val()
-                    },
-                    url: 'api/login',
-                    success: function(result){
-                        if(result.authorized){
-                            vent.trigger('authorized', result);
-                        }
-                    }
-                });
+                this.trigger('click:login', authInfo);                
             }
         });
     });

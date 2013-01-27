@@ -22,12 +22,22 @@ exports.html = function(req, res){
         }
     ],
     function(err,results){        
-        var locals;        
+        var locals,
+            initialData;
+    
         if(!err){
+            
+            initialData = {
+                currentUser: req.session.user || false
+            };
+            
             locals = {
                 shops: results[0],
-                participants: results[1]
+                participants: results[1],
+                initialData: JSON.stringify(initialData)
             };
+            
+        
             
             res.render('index', locals, function(err, html){
                 res.send(html);

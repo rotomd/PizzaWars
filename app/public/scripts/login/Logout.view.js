@@ -16,7 +16,7 @@ define([
             
             logoutClick: function(event){
                 event.preventDefault();
-                this.trigger('logoutClick');
+                this.trigger('click:logout');
             }
         });
     });

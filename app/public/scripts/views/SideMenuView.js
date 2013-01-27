@@ -3,8 +3,11 @@
 */
 
 define(
-    ['backbone', 'jquery', 'underscore', 'router'],     
-    function(Backbone, $, _, router) {
+    ['backbone', 
+    'jquery', 
+    'underscore'
+    ],     
+    function(Backbone, $, _) {
         var SideMenuView = Backbone.View.extend({
            
             //the element for this view
@@ -15,17 +18,12 @@ define(
             },
             
             events: {
-                "click #rank-shops": "rankShops",
-                "click #next-shop": "nextShop"
+                "click #rank-shops": "rankShops"
             },
             
             rankShops: function(event){
-                event.preventDefault();                
-                router.navigate('ranking', {trigger: true});
-            },
-            
-            nextShop: function(event){
-                console.log( 'you need to post to /api/shop' );
+                event.preventDefault(); 
+                
             }
         });
         

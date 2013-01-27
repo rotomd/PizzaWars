@@ -26,7 +26,9 @@ define([
     'people/person.controller',
     
     //other stuff
-    'templates/index-layout'
+    'templates/index-layout',
+    
+    'login/login.controller'
     
 ], 
 function(Backbone, mr, _, $, app, vent,
@@ -47,7 +49,10 @@ function(Backbone, mr, _, $, app, vent,
     personController,
     
     //other stuff
-    indexTemplate
+    indexTemplate,
+    
+    //login controller included so we can check whether people are authorized.
+    loginController
     
 ){
     
@@ -55,8 +60,7 @@ function(Backbone, mr, _, $, app, vent,
         
         //initialize an index view.
         index: function(){
-            
-            console.log('index');
+                        
             
             //get a collection of people and a collection of shops
             var shopCollection = app.shopCollection = new ShopCollection();
@@ -98,16 +102,13 @@ function(Backbone, mr, _, $, app, vent,
             });
         },
         
-        rankShops: function(){
-            
-            //get the model for the current user
-            //var person = new PersonModel({id: id});
-//            person.fetch({
-//                success: function(model, response, options) {
-//                    personController.initPersonInfoView(model);
-//                }
-//            });
-            
+        rankShops: function(id){        
+            //if the person is logged in, get their model from the collection and send them to the shop ranking view.
+            if(loginController.authKey){
+                personController.initRankingView(id);
+            } else {
+                console.log('not logged in');
+            }
         },
         
         catchall: function(attemptedUrl){

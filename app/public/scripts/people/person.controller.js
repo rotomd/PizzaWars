@@ -51,6 +51,21 @@ function(Backbone, mr, _, $, app, vent,
             
             
             layout.shops.show( new PersonShopCollectionView({shops: rankings}) );
+        },
+        
+        initRankingView: function(person){
+            //person is either a model or an id.
+            //if it is a model, just render the ranking view for that model.
+            
+            //if it is an id, get the model for that id from the server, 
+            //then do what you did for the model
+            if(typeof person === 'object'){
+                this.renderRankingView(person);
+            } else {
+                var personModel = new PersonModel({id: person});
+                personModel.fetch();
+                
+            }
         }
     });
     
