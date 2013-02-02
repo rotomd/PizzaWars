@@ -7,28 +7,40 @@ with (locals || {}) {
 var interp;
 __jade.unshift({ lineno: 1, filename: __jade[0].filename });
 __jade.unshift({ lineno: 1, filename: __jade[0].filename });
-buf.push('<div id="side-menu" class="col span_1_of_4">');
-__jade.unshift({ lineno: undefined, filename: __jade[0].filename });
-__jade.unshift({ lineno: 3, filename: __jade[0].filename });
-buf.push('<ul>');
-__jade.unshift({ lineno: undefined, filename: __jade[0].filename });
-__jade.unshift({ lineno: 3, filename: __jade[0].filename });
+if ( initialData.currentUser && initialData.currentUser.id)
+{
+__jade.unshift({ lineno: 2, filename: __jade[0].filename });
+__jade.unshift({ lineno: 2, filename: __jade[0].filename });
 buf.push('<li id="rank-shops">');
+__jade.unshift({ lineno: undefined, filename: __jade[0].filename });
+__jade.unshift({ lineno: 3, filename: __jade[0].filename });
+buf.push('<a href="/rank">');
 __jade.unshift({ lineno: undefined, filename: __jade[0].filename });
 __jade.unshift({ lineno: 3, filename: __jade[0].filename });
 buf.push('Rank Shops');
 __jade.shift();
 __jade.shift();
+buf.push('</a>');
+__jade.shift();
+__jade.shift();
 buf.push('</li>');
 __jade.shift();
-__jade.unshift({ lineno: 4, filename: __jade[0].filename });
-buf.push('<!--li#next-shop Get Next Shop-->');
+__jade.shift();
+}
+else
+{
+__jade.unshift({ lineno: 5, filename: __jade[0].filename });
+__jade.unshift({ lineno: 5, filename: __jade[0].filename });
+buf.push('<li>');
+__jade.unshift({ lineno: undefined, filename: __jade[0].filename });
+__jade.unshift({ lineno: 5, filename: __jade[0].filename });
+buf.push('If you want to rank shops, sign in.');
 __jade.shift();
 __jade.shift();
-buf.push('</ul>');
+buf.push('</li>');
 __jade.shift();
 __jade.shift();
-buf.push('</div>');
+}
 __jade.shift();
 __jade.shift();
 }

@@ -28,13 +28,14 @@ exports.html = function(req, res){
         if(!err){
             
             initialData = {
-                currentUser: req.session.user || false
+                currentUser: req.session.user || null
             };
             
             locals = {
                 shops: results[0],
                 participants: results[1],
-                initialData: JSON.stringify(initialData)
+                initialDataString: JSON.stringify(initialData),
+                initialData: initialData
             };
             
         

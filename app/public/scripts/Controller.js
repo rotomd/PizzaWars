@@ -1,6 +1,8 @@
 /*
 *   controller
 *   defines functions for init-ing views
+*   This controller is really just the app's main router's errand boy. 
+*   It just executes the init functions for routes.
 */
 
 define([
@@ -8,7 +10,7 @@ define([
     'marionette',
     'underscore',
     'jquery',
-    'app',
+   // 'app',
     'vent',
     
     //shops stuff:
@@ -28,10 +30,12 @@ define([
     //other stuff
     'templates/index-layout',
     
-    'login/login.controller'
+    'login/Login.controller'
     
 ], 
-function(Backbone, mr, _, $, app, vent,
+function(Backbone, mr, _, $, //app, 
+
+    vent,
     
     //shop stuff:
     ShopCollection,
@@ -58,16 +62,27 @@ function(Backbone, mr, _, $, app, vent,
     
     return mr.Controller.extend({
         
+        initialize: function(){
+           // personController.on('show:mainRegion', this.passEvent, this);
+        },
+        
+        passEvent: function(){
+            //this.trigger()
+        },
+        
         //initialize an index view.
         index: function(){
                         
             
             //get a collection of people and a collection of shops
-            var shopCollection = app.shopCollection = new ShopCollection();
-            var personCollection = app.personCollection = new PersonCollection();
+            var shopCollection = /*app.shopCollection =*/ new ShopCollection();
+            var personCollection = /* app.personCollection = */ new PersonCollection();
             
             shopCollection.fetch();
             personCollection.fetch();      
+            
+            vent.trigger('set', 'shopCollection', shopCollection);
+            vent.trigger('set', 'personCollection', personCollection);
             
             
             //init an index layout with a shops and people region
@@ -83,12 +98,15 @@ function(Backbone, mr, _, $, app, vent,
             //layout.render();
             
             //show the layout in the app's main region.
-            app.mainRegion.show(layout);  
-
+            //app.mainRegion.show(layout);  
+       
+            vent.trigger('show', 'mainRegion', layout);
             
             //show the shops and people regions in the layout.
             layout.people.show(new PersonCollectionView({collection: personCollection}));
             layout.shops.show(new ShopCollectionView({collection: shopCollection}));
+            
+            
         },
         
         person: function(id){
@@ -102,12 +120,28 @@ function(Backbone, mr, _, $, app, vent,
             });
         },
         
-        rankShops: function(id){        
+        rankShops: function(){        
             //if the person is logged in, get their model from the collection and send them to the shop ranking view.
-            if(loginController.authKey){
-                personController.initRankingView(id);
+//            if(loginController.authKey){
+//                personController.initRankingView(id);
+//            } else {
+//                console.log('not logged in');
+//            }
+            this.once('got', this.showRankingView, this);
+            vent.trigger('get', ['currentUser'], this);
+            
+        },
+        
+        showRankingView: function(currentUser){
+            //if current user is defined, get the data for the current user
+            // (without trusting client, of course)
+            // and render the ranking view with that data
+            
+            //if current user is undefined, just redirect home.
+            if(currentUser){
+                console.log('able to render the ranking view');
             } else {
-                console.log('not logged in');
+                Backbone.history.navigate('/', {trigger: true});    
             }
         },
         

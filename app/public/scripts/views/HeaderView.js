@@ -14,7 +14,6 @@ define([
     function(Backbone, _, mr, $, vent){
         
         return mr.ItemView.extend({            
-            el: '#header',
             
             events: {
                 'click a': 'headerClick'

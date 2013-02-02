@@ -7,7 +7,7 @@ define([
     'marionette',
     'underscore',
     'jquery',
-    'app',
+   // 'app',
     'vent',
     
     //people stuff
@@ -20,7 +20,9 @@ define([
     'people/views/info/Person.shopCollectionView'
     
     ], 
-function(Backbone, mr, _, $, app, vent,
+function(Backbone, mr, _, $, //app, 
+
+    vent,
     
     PersonModel,
     PersonCollection,
@@ -38,13 +40,13 @@ function(Backbone, mr, _, $, app, vent,
         
         initPersonInfoView: function(person){
             //put the person info view layout on the page
-            console.log(person);
-            
+   
             //render a new person info view into that layout, 
             //  passing in the person as the model.
             var layout = new PersonInfoLayout();
             
-            app.mainRegion.show(layout);
+            //app.mainRegion.show(layout);
+            vent.trigger('show', 'mainRegion', layout);
             
             //extract the rankings from the person model
             var rankings = person.get('rankings');

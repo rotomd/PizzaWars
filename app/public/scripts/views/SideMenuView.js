@@ -4,26 +4,25 @@
 
 define(
     ['backbone', 
+    'marionette',
     'jquery', 
     'underscore'
     ],     
-    function(Backbone, $, _) {
-        var SideMenuView = Backbone.View.extend({
-           
-            //the element for this view
-            el: '#side-menu',
-           
+    function(Backbone, mr, $, _) {
+        var SideMenuView = mr.ItemView.extend({
+          
             initialize: function(){
                 console.log('side menu view init');
             },
             
             events: {
-                "click #rank-shops": "rankShops"
+                "click #rank-shops a": "rankShops"
             },
             
             rankShops: function(event){
                 event.preventDefault(); 
                 
+                Backbone.history.navigate('/rank', {trigger:true});
             }
         });
         

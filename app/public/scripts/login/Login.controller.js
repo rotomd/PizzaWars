@@ -7,7 +7,7 @@ define([
     'marionette',
     'underscore',
     'jquery',
-    'app',
+   // 'app',
     'vent',
     
     //logout stuff
@@ -18,35 +18,29 @@ define([
     
     ],
     
-    function(bb, mr, _, $, app, vent, LogoutView, LoginView){
+    function(bb, mr, _, $, //app, 
+    vent, LogoutView, LoginView){
         var Controller = mr.Controller.extend({
             
           
-            initialize: function(){
+            initialize: function(options){
+                //configureAuthorization(options);
                 vent.on('authorized', this.showLogoutView);
+                
+                if(options.currentUser && options.currentUser.id){
+                    this.showLogoutView(options);
+                } else {
+                    this.showLoginView();
+                }
             },
             
-            configureAuthorization: function(){
-                var that = this;
-                $.ajax({
-                    url: 'api/authorized',
-                    type: 'get',
-                    success: function(result){
-                        if(result.authorized){
-                            that.authKey = result.key;
-                            that.showLogoutView(result);
-                        } else {
-                            that.authKey = '';
-                            that.showLoginView(result);
-                        }
-                    }
-                });
-            },
-                        
+        
             
             showLogoutView: function(authInfo){
                 var logoutView = new LogoutView();
-                app.loginRegion.show(logoutView);
+                
+                vent.trigger('show', 'loginRegion', logoutView);
+                //app.loginRegion.show(logoutView);
                 
                 logoutView.on('click:logout', this.logout, this);                
             },
@@ -58,7 +52,8 @@ define([
                     url: 'api/logout'
                 });
                 
-                app.currentUser = null;
+                vent.trigger('set', 'currentUser', null)
+                //app.currentUser = null;
              
                 //switch the views.
                 this.showLoginView(authInfo);
@@ -66,7 +61,9 @@ define([
             
             showLoginView: function(authInfo){    
                 var loginView = new LoginView();
-                app.loginRegion.show(loginView);
+                //app.loginRegion.show(loginView);
+                
+                vent.trigger('show', 'loginRegion', loginView);
                 
                 loginView.on('click:login', this.login, this);
             },
@@ -79,7 +76,8 @@ define([
                     url: 'api/login',
                     success: function(result){
                         if(result.authorized){
-                            app.currentUser = result.user;
+                            //app.currentUser = result.user;
+                            vent.trigger('set', 'currentUser', result.user);
                             that.showLogoutView(authInfo);
                         }
                     }
@@ -87,7 +85,7 @@ define([
             }
         });
         
-        return new Controller();
+        return Controller;
     });
     
     

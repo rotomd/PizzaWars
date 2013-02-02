@@ -33,21 +33,21 @@ require.config({
 
 define([
     'backbone',
-    'app',
-    'Router',
-    'Controller',
-    'login/login.controller'
+    'app'
+    //'Router',
+    //'Controller',
+    //'login/login.controller'
     ], 
-    function(Backbone, app, Router, Controller, loginController){
+    function(Backbone, app){
     
         app.start();
         
-        new Router({
-            controller: new Controller()
-        });
+        //new Router({
+        //    controller: new Controller()
+        //});
         
-        loginController.configureAuthorization();
+        //loginController.configureAuthorization();
         
-        Backbone.history.start({pushState: true});
+      //  Backbone.history.start({pushState: true});
         
     });

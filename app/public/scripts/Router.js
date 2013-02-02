@@ -14,7 +14,7 @@ define([
         appRoutes: {
             '': 'index',
             'person/:id': 'person',
-            'rank/:id': 'rankShops',
+            'rank': 'rankShops',
             '*notFound': 'catchall'
         }
 	});
